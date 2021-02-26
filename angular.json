@@ -3,5 +3,48 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "firebase-store": {
+      "projectType": "library",
+      "root": "projects/firebase-store",
+      "sourceRoot": "projects/firebase-store/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/firebase-store/tsconfig.lib.json",
+            "project": "projects/firebase-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/firebase-store/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/firebase-store/src/test.ts",
+            "tsConfig": "projects/firebase-store/tsconfig.spec.json",
+            "karmaConfig": "projects/firebase-store/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/firebase-store/tsconfig.lib.json",
+              "projects/firebase-store/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": "e16174f1-14c5-4180-92db-fc52df55cce1"
+  },
+  "defaultProject": "firebase-store"
 }
