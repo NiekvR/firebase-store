@@ -1,6 +1,6 @@
 {
-  "name": "firebase-blue-print",
-  "version": "0.1.0",
+  "name": "firebase-store",
+  "version": "0.2.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
