@@ -7,7 +7,7 @@ import { AngularFirestoreCollection, DocumentSnapshot } from '@angular/fire/fire
   providedIn: 'root'
 })
 export class FirebaseCollectionService<T> {
-  private collection = new BehaviorSubject<AngularFirestoreCollection<T>>(null as unknown as AngularFirestoreCollection<T>);
+  private collection = new BehaviorSubject<AngularFirestoreCollection<T> | null>(null);
 
   constructor() {
   }
@@ -52,11 +52,11 @@ export class FirebaseCollectionService<T> {
     return item;
   }
 
-  protected setCollection(collection: AngularFirestoreCollection<T>): void {
-    this.collection.next(collection);
+  protected setCollection(collection: AngularFirestoreCollection<T> | null): void {
+    this.collection.next(collection as AngularFirestoreCollection<T>);
   }
 
-  private getCollection$(): Observable<AngularFirestoreCollection<T>> {
+  private getCollection$(): Observable<AngularFirestoreCollection<T> | null> {
     return this.collection.asObservable();
   }
 

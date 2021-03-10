@@ -23,6 +23,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ModelService extends FirebaseStoreService<Model> {
 
   constructor(private db: AngularFirestore) {
+    super();
     this.setCollection(db.collection<Model>('Model'));
   }
 }
@@ -83,6 +84,7 @@ export class ModelService extends FirebaseStoreService<Model> {
 
   constructor(private db: AngularFirestore, 
               private parentCollectionService: ParentCollectionService) {
+    super();
     this.parentCollectionService.selected()
         .subscribe(selectedId => this.setCollection(
             db.doc<Parent>(`Parent/${selectedId}`)
